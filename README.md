@@ -18,6 +18,11 @@ Install the dependencies and devDependencies and start the server.
 ```sh
 $ sudo npm install
 ```
+##For local/testing:
+```sh
+$ truffle compile
+$ truffle deploy
+```
 run the server
 ```sh
 $ npm run start
