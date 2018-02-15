@@ -54,7 +54,7 @@ contract AuctionItem {
     }
     //The owner should be able to end the auction
     function endAuction() onlyOwner{
-        owner.transfer(currentHighestBid);
+        selfdestruct(owner);
         auctionEnded = true;
     }
 
