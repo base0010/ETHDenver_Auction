@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import AuctionItemABI from '../build/contracts/AuctionItem.json'
 import getWeb3 from './utils/getWeb3'
+import ReactInterval from 'react-interval'
 
 
 import './css/oswald.css'
@@ -50,15 +51,19 @@ class App extends Component {
         }
       })
       // Instantiate contract once web3 provided.
-      this.instantiateContract()
+      setInterval(this.instantiateContract(), 2500)
     })
     .catch(() => {
       console.log('Error finding web3.')
     })
   }
+componentDidMount(){
+ 
+
+}
 
   instantiateContract() {
-  
+    console.log('instantiating')
  
     const AuctionItem = contract(AuctionItemABI)
     AuctionItem.setProvider(this.state.web3.currentProvider)
@@ -89,10 +94,10 @@ class App extends Component {
         this.setState({squak: result}); console.log('Squak: ' + result)
       })
 
-
-
   })
-  
+  console.log('do')
+  AuctionItem.deployed().then((instance) => instance.allEvents(function(e,r){if(!e) console.log(r + e)}))
+
 }
   
     
@@ -107,8 +112,7 @@ class App extends Component {
     console.log('You just bid: ' + bid + ' wei')
     console.log(this.state.squak)
     this.state.contract.bid(squak, {from:this.account, value:this.state.web3.toWei(bid), gas:300000}).then((result)=>{
-      console.log(result); let a = result.tx ; 
-      this.setState({result: a})
+      console.log(result)
     }
   )}
 
@@ -129,6 +133,9 @@ class App extends Component {
               <p><b>Heres some cool art for a good cause</b></p>
               <img src = 'danny.jpg'></img>
               <p> This man is a genius</p>
+              <ReactInterval timeout={10000} enabled={true}
+          callback={() => this.instantiateContract()} />
+
               <p>The current highest bid is: {this.state.currentHighestBid} ETH</p>
               <p>Bidder {this.state.currentHighestBidder} said: </p>
               <p> <b>{this.state.squak}</b></p>
