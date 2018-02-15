@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom'
 import Danny from './App'
 import Cat from './Cat'
 import Item3 from './Item3'
+import Item4 from './Item4'
+
 import Stats from './Stats'
 import Auction from './Auction'
 import {BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom'
@@ -16,6 +18,7 @@ ReactDOM.render(
     <Route exact path="/danny" component={Danny}/>
     <Route exact path="/cat" component={Cat}/>
     <Route exact path="/3" component={Item3}/>
+    <Route exact path="/4" component={Item4}/>
 
     </Switch>
     </Router>

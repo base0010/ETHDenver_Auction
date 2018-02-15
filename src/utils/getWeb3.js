@@ -15,7 +15,7 @@ let getWeb3 = new Promise(function(resolve, reject) {
         web3: web3
       }
 
-      console.log('Injected web3 detected.');
+      alert('Injected web3 detected.');
 
       resolve(results)
     } else {
@@ -29,7 +29,7 @@ let getWeb3 = new Promise(function(resolve, reject) {
         web3: web3
       }
 
-      console.log('No web3 instance injected, using Local web3.');
+      alert('No web3 instance injected, using Local web3.');
 
       resolve(results)
     }

@@ -30,7 +30,7 @@ contract AuctionItem {
         _;
     }
     
-    function Auction(string name){
+    function AuctionItem(string name){
         auctionName = name; 
         owner = msg.sender;
     }

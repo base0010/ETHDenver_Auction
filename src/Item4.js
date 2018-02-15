@@ -8,13 +8,12 @@ import './css/oswald.css'
 import './css/open-sans.css'
 import './css/pure-min.css'
 import './App.css'
-import Auction from './Auction';
 
 const contractAddress = null;
 const contract = require('truffle-contract')
 
 
-class App extends Component {
+class Item4 extends Component {
   constructor(props) {
     super(props)
 
@@ -66,18 +65,10 @@ componentDidMount(){
   instantiateContract() {
     console.log('instantiating')
  
-    var AuctionItem = contract(AuctionItemABI)
+    const AuctionItem = contract(AuctionItemABI)
     AuctionItem.setProvider(this.state.web3.currentProvider)
-    
-    var newItem = AuctionItem.at("0x20d484ef27344c936269b5c7d769ff3e2a7bc31c")
+    //AuctionItem.at(contractAddress) --for when it is deployed
 
-    console.log(newItem)
-   newItem.then((instance)=>{
-      instance.currentHighestBid.call().then((result)=>{
-        return console.log('new res' + result)
-      })
-    })
-   
     //Set the State
     AuctionItem.deployed().then((instance) => {
       this.setState({contract: instance})
@@ -140,7 +131,7 @@ componentDidMount(){
             <div className="pure-u-1-1">
               <h1>{this.state.auctionName}</h1>
               <p><b>Heres some cool art for a good cause</b></p>
-              <img src = 'danny.jpg'></img>
+              <img src = 'unicorn.jpg'></img>
               <p> This man is a genius</p>
               <ReactInterval timeout={3000} enabled={true}
           callback={() => this.instantiateContract()} />
@@ -162,5 +153,5 @@ componentDidMount(){
   }
 }
 
-export default App
+export default Item4
 

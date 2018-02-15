@@ -14,6 +14,8 @@ class Auction extends Component{
                 <Link to='/cat'>Cat</Link>
                 <br></br>
                 <Link to='/3'>3</Link>
+                <br></br>
+                <Link to='/4'>4</Link>
 
 
             </div>

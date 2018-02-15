@@ -44,7 +44,7 @@ class Item3 extends Component {
       this.state.web3.eth.getAccounts((error, accounts) => {
         if(!error){
           this.account = accounts[0]
-          console.log('Using this account:' + accounts[0])
+          alert('Using this account:' + accounts[0])
         }
         else{
           console.log('Could not get accounts is your wallet unlocked?')
@@ -139,6 +139,7 @@ componentDidMount(){
               <p>The current highest bid is: {this.state.currentHighestBid} ETH</p>
               <p>Bidder {this.state.currentHighestBidder} said: </p>
               <p> <b>{this.state.squak}</b></p>
+              <p>Web3 {this.state.account}</p>
               
               <form onSubmit={this.placeBid.bind(this)}>
               <input type="text" ref="weiValueField" placeholder="Enter a New Bid"  />
