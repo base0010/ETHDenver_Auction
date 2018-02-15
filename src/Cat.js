@@ -13,7 +13,7 @@ const contractAddress = null;
 const contract = require('truffle-contract')
 
 
-class App extends Component {
+class Cat extends Component {
   constructor(props) {
     super(props)
 
@@ -131,7 +131,7 @@ componentDidMount(){
             <div className="pure-u-1-1">
               <h1>{this.state.auctionName}</h1>
               <p><b>Heres some cool art for a good cause</b></p>
-              <img src = 'danny.jpg'></img>
+              <img src = 'cat.jpg'></img>
               <p> This man is a genius</p>
               <ReactInterval timeout={3000} enabled={true}
           callback={() => this.instantiateContract()} />
@@ -153,5 +153,5 @@ componentDidMount(){
   }
 }
 
-export default App
+export default Cat
 

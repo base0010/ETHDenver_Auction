@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import {BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom'
 
 class Auction extends Component{
 
@@ -6,14 +7,21 @@ class Auction extends Component{
 
     render(){
         return(
+       
             <div>
-                <h1><a href="/danny">Danny</a></h1>
+                <Link to='/danny'>Danny</Link>
+                <br></br>
+                <Link to='/cat'>Cat</Link>
+                <br></br>
+                <Link to='/3'>3</Link>
 
-                <h1>Art #2</h1>
-                <h1>Art #3</h1>
+
             </div>
         )
-    }
+}
+
+        
+    
 }
 
 export default Auction
