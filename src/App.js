@@ -128,20 +128,18 @@ componentDidMount(){
   render() {
     return (
       <div className="App">
-        <nav className="navbar pure-menu pure-menu-horizontal">
-            <a href="/" className="pure-menu-heading pure-menu-link">Auction</a>
-        </nav>
+      <nav className="navbar pure-menu pure-menu-horizontal">
+      <a href="/" className="pure-menu-heading pure-menu-link">Auction</a>
+          </nav>
+
         
         <main className="container">
         
-          <div className="pure-g">
-          <div className ="auction-img">
+          <h1>{this.state.auctionName}</h1>
               <div>
                 <img src = {this.props.img}></img>
               </div>
-              </div>
-            <div className="pure-u-1-1">
-              <h1>{this.state.auctionName}</h1>
+              
               <h4>The contract's address is @: {this.state.address}</h4>
               {/* <p><b>Heres some cool art for a good cause</b></p> */}
              
@@ -150,18 +148,18 @@ componentDidMount(){
           callback={() => this.instantiateContract()} />
 
               <p>The current highest bid is: {this.state.currentHighestBid} ETH</p>
-              <p>Bidder: {this.state.currentHighestBidder} said: </p>
-              <br></br>
-              <p> <b>{this.state.squak}</b></p>
+              <p>Bidder: {this.state.currentHighestBidder} </p>
+              <p>said: <b>{this.state.squak}</b></p>
+              
+              
               
               
               <form onSubmit={this.placeBid.bind(this)}>
               <input type="text" ref="weiValueField" placeholder="Enter a New Bid"  />
               <input type="text" ref="squak" placeholder="Say Something"/>
+              
               <button className="button">Bid</button>
               </form>
-            </div>
-          </div>
         </main>
       </div>
     );

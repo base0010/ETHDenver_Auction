@@ -5,6 +5,7 @@ body,
   font-family: 'Open Sans', sans-serif;
   text-align: center;
 
+
   
 }
 li{
@@ -27,6 +28,7 @@ code {
   width: 100%;
   padding: 45px 20px;
   margin: 0 auto;
+  word-wrap: break-word;
 }
 
 .pure-button-primary {
@@ -75,6 +77,8 @@ code {
   color: white;
     background: #9281ec;
     border-color: #9281ec;
+  width:100%;
+
 
 }
 .navbar .uport-logo {
@@ -84,9 +88,11 @@ code {
 img{
   width:50%;
   height:auto;
- 
   vertical-align: middle; 
   margin: 5%;
 
  
+}
+padcont{
+  width:80%;
 }
