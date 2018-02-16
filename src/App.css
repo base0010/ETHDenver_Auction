@@ -4,6 +4,7 @@ body,
 .pure-g [class*=pure-u] {
   font-family: 'Open Sans', sans-serif;
   text-align: center;
+
   
 }
 li{
@@ -41,7 +42,9 @@ code {
 }
 
 /* NAVBAR */
-
+.pure-u-1-1{
+  width:100%;
+}
 .navbar {
   position: center;
   padding: 5px;
@@ -83,8 +86,7 @@ img{
   height:auto;
  
   vertical-align: middle; 
-  transform: rotate(90deg);
-  margin: 10%;
+  margin: 5%;
 
  
 }
