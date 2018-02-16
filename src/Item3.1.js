@@ -8,20 +8,18 @@ import './css/oswald.css'
 import './css/open-sans.css'
 import './css/pure-min.css'
 import './App.css'
-import Auction from './Auction';
 
-//const contractAddress = "0x91d0013742C6A6a033d46ac9DA7b5E0416c35e24";
+const contractAddress = null;
 const contract = require('truffle-contract')
 
 
-class App extends Component {
+class Item3 extends Component {
   constructor(props) {
     super(props)
+
     this.state = {
       account: null,
       bid: null,
-      address:this.props.address,
-
       auctionName: "noname",
       currentHighestBid: 0,
       squak: "nothing",
@@ -46,7 +44,7 @@ class App extends Component {
       this.state.web3.eth.getAccounts((error, accounts) => {
         if(!error){
           this.account = accounts[0]
-          console.log('Using this account:' + accounts[0])
+          alert('Using this account:' + accounts[0])
         }
         else{
           console.log('Could not get accounts is your wallet unlocked?')
@@ -57,29 +55,22 @@ class App extends Component {
     })
     .catch(() => {
       console.log('Error finding web3.')
-
     })
   }
 componentDidMount(){
+ 
 
 }
 
   instantiateContract() {
     console.log('instantiating')
  
-    var AuctionItem = contract(AuctionItemABI)
+    const AuctionItem = contract(AuctionItemABI)
     AuctionItem.setProvider(this.state.web3.currentProvider)
-    var contractAddress = this.state.address;
-    
-    var newItem = AuctionItem.at(contractAddress)
-   newItem.then((instance)=>{
-      instance.auctionName.call().then((result)=>{
-         console.log('new res' + result)
-      })
-    })
-   
+    //AuctionItem.at(contractAddress) --for when it is deployed
+
     //Set the State
-    newItem.then((instance) => {
+    AuctionItem.deployed().then((instance) => {
       this.setState({contract: instance})
       console.log('Auction Address: ' + instance.address)
 
@@ -104,7 +95,8 @@ componentDidMount(){
       })
 
   })
-  //AuctionItem.deployed().then((instance) => instance.allEvents(function(e,r){if(!e) console.log(r + e)}))
+  console.log('do')
+  AuctionItem.deployed().then((instance) => instance.allEvents(function(e,r){if(!e) console.log(r + e)}))
 
 }
   
@@ -135,25 +127,19 @@ componentDidMount(){
         <main className="container">
         
           <div className="pure-g">
-          <div className ="auction-img">
-              <div>
-                <img src = {this.props.img}></img>
-              </div>
-              </div>
+          
             <div className="pure-u-1-1">
               <h1>{this.state.auctionName}</h1>
-              <h4>The contract's address is @: {this.state.address}</h4>
-              {/* <p><b>Heres some cool art for a good cause</b></p> */}
-             
-              {/* <p>{this.props.name}</p> */}
+              <p><b>Heres some cool art for a good cause</b></p>
+              <img src = 'unicorn.jpg'></img>
+              <p> This man is a genius</p>
               <ReactInterval timeout={3000} enabled={true}
           callback={() => this.instantiateContract()} />
 
               <p>The current highest bid is: {this.state.currentHighestBid} ETH</p>
-              <p>Bidder: {this.state.currentHighestBidder} said: </p>
-              <br></br>
+              <p>Bidder {this.state.currentHighestBidder} said: </p>
               <p> <b>{this.state.squak}</b></p>
-              
+              <p>Web3 {this.state.account}</p>
               
               <form onSubmit={this.placeBid.bind(this)}>
               <input type="text" ref="weiValueField" placeholder="Enter a New Bid"  />
@@ -168,5 +154,5 @@ componentDidMount(){
   }
 }
 
-export default App
+export default Item3
 

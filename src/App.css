@@ -6,6 +6,9 @@ body,
   text-align: center;
   
 }
+li{
+  list-style: none
+}
 
 h1, h2, h3 {
   font-family: 'Oswald', 'Arial Narrow', sans-serif;
@@ -74,4 +77,14 @@ code {
 .navbar .uport-logo {
   height: 16px;
   margin-right: 10px;
+}
+img{
+  width:50%;
+  height:auto;
+ 
+  vertical-align: middle; 
+  transform: rotate(90deg);
+  margin: 10%;
+
+ 
 }
