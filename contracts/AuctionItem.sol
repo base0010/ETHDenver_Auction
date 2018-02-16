@@ -30,9 +30,11 @@ contract AuctionItem {
         _;
     }
     
-    function AuctionItem(string name){
+    function AuctionItem(string name, uint startingBid){
         auctionName = name; 
         owner = msg.sender;
+        currentHighestBid = startingBid
+
     }
     
     //allow people using MetaMask/Cipher et. al. to specifically set a taunting message ;)
